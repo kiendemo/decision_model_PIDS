@@ -1,0 +1,7 @@
+# Mirror of habitus.dm.jev_head.RECIPE_HEAD, merged over configs/train/jev-lora.yaml
+# (tests/test_dm_mirror_jev.py asserts equality).
+variant: head
+base: jev-lora
+recipe:
+  head_lr: 2.0e-4
+  norm_fit_items: 256

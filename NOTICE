@@ -1,0 +1,72 @@
+HABITUS
+Copyright 2026 The HABITUS authors
+
+This product is licensed under the Apache License, Version 2.0 (LICENSE). It includes, adapts or
+uses the third-party works below; each keeps its own licence.
+
+-------------------------------------------------------------------------------------------------
+PIDSMaker
+  https://github.com/ubc-provenance/PIDSMaker, Apache License 2.0.
+  Upstream commit 2289cd9 builds the provenance graphs (`habitus data graphs`, run as a separate
+  process; docs/upstream.patch changes the optc_h501 database name only). The research fork the
+  published numbers come from matches upstream tag 2.1.1 for the files it did not change. Ported
+  from it: the dataset day windows and ground-truth file lists (configs/datasets.yaml), the 15-minute
+  window iteration and the node-path / event helpers of the card builder (src/habitus/data), and the
+  logger interface. The ground-truth CSVs in the local result bundle are upstream files, copied
+  unmodified with the upstream LICENSE next to them: the node labels of PIDSMaker's
+  Ground_Truth/orthrus/ (upstream commit 2289cd9), curated by the PIDSMaker / ORTHRUS authors from the
+  official DARPA TC engagement-3 ground-truth report (TC_Ground_Truth_Report_E3_Update.pdf) and the
+  DARPA OpTC and ATLASv2 attack documentation. The upstream Ground_Truth/orthrus/readme.md (same
+  commit) records, per attack, whether it was used or removed; it is cited here, not copied (it also
+  documents hosts outside this repository's scope).
+
+-------------------------------------------------------------------------------------------------
+Laya 0.3.5
+  https://github.com/NandhaKishorM/laya (release 0.3.5, commit 573e5b6), Apache License 2.0,
+  Copyright Convai Innovations. Model weights: convaiinnovations/laya (revision 1c5edc17,
+  Apache-2.0), encoder answerdotai/ModernBERT-large. The weights are not redistributed.
+
+  Changes to the vendored Laya code (src/habitus/dm/laya.py, src/habitus/dm/laya_mq.py,
+  src/habitus/train/laya*.py), relative to laya/common.py of 0.3.5:
+  1. Only DecisionModel (common.py 89-136), build_model (139) and the collate logic (247) are
+     vendored, with the same parameter names, so released checkpoints load with strict=True and
+     give the same logits on the same inputs.
+  2. Nothing is truncated: build_sequence's silent cuts (every option to 48 tokens, options to
+     head_max_len - 16, the question, the state to the room left in max_len) are removed. A row over
+     2048 tokens, or a question + options head over 256 tokens, is refused, never cut.
+  3. Every text segment passes a special-token neutraliser; any special id outside the structural
+     positions raises.
+  4. The temperature buffer is reset to 1 and the checkpoint's temperature_by_options table is
+     dropped; answers are read at T = 1 (fitted temperatures serve calibration reports only).
+  5. act_head is kept in the state dict but never run.
+  6. Multi-question layout (laya_mq): forward accepts position_ids, a full / sliding attention mask
+     dict and a head mask; all are inert when omitted (the original call, bit for bit).
+
+-------------------------------------------------------------------------------------------------
+Qwen3.5 (Qwen/Qwen3.5-4B revision 851bf6e8, Qwen/Qwen3.5-0.8B revision 2fc06364)
+  Apache License 2.0. The main decision model is the stock instruction-tuned Qwen3.5-4B read out by
+  the logits of its option letters. The local result bundle contains its 6 tokenizer files
+  (chat_template.jinja, config.json, merges.txt, tokenizer.json, tokenizer_config.json, vocab.json),
+  with copies of this NOTICE and of the Apache-2.0 LICENSE at the bundle root; the weights are not
+  redistributed.
+
+ModernBERT (answerdotai/ModernBERT-large)
+  Apache License 2.0; the encoder of the Laya decision models. The weights are not redistributed;
+  the local result bundle contains the typed-decisions checkpoint's tokenizer files (tokenizer.json,
+  tokenizer_config.json) under tokenizer/laya-typed-decisions/, so the laya CPU tests need no weights.
+
+-------------------------------------------------------------------------------------------------
+Role-table catalogs (habit channel only; fetched at run time by scripts/fetch_catalogs.sh at pinned
+commits and checked by sha256; NEVER vendored or redistributed):
+  GTFOBins  https://github.com/GTFOBins/GTFOBins.github.io, GNU General Public License v3.0
+  LOLBAS    https://github.com/LOLBAS-Project/LOLBAS, GNU General Public License v3.0
+  Debian bookworm Contents-amd64 (Debian archive terms)
+  xcyclopedia (strontic); its licence is not verified: check it before use.
+
+-------------------------------------------------------------------------------------------------
+Datasets
+  DARPA Transparent Computing Engagement 3 (CADETS_E3, THEIA_E3, CLEARSCOPE_E3), DARPA OpTC
+  (optc_h501) and ATLASv2 (ATLASV2_EDR) are used under their providers' terms. No raw data is
+  included in this repository. The local result bundle (release/, not published) holds evidence
+  cards derived from these logs (paths, command lines, addresses); see its PUBLISH.md before any
+  redistribution.

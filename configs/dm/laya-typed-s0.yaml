@@ -1,0 +1,15 @@
+# HB-L.s0: ONE Laya run (seed 0) fine-tuned on the fold's habit items, layout L-a.
+# <fold> is the training fold of the scored host (fold safety: the run record must name it).
+# The run directories were lost with the former data disk; retraining gives different numbers.
+dm: laya
+layout: la
+questions: habit
+init: typed-decisions
+runs:
+  - runs/adapters/<fold>/hbl/HB-L-s0
+max_len: 2048
+head_max_len: 256
+batch_rows: 64
+max_tokens: 32768
+cache_only: true
+device: cpu

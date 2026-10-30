@@ -1,0 +1,17 @@
+# HB-L: the pre-declared 3-seed Laya ensemble (seeds 0, 1, 2), layout L-a; Answer = pbar over
+# orders x seeds at T = 1. The ensemble record carries the report-only temperatures.
+dm: laya
+layout: la
+questions: habit
+init: typed-decisions
+runs:
+  - runs/adapters/<fold>/hbl/HB-L-s0
+  - runs/adapters/<fold>/hbl/HB-L-s1
+  - runs/adapters/<fold>/hbl/HB-L-s2
+ensemble: runs/adapters/<fold>/hbl/HB-L.ensemble.json
+max_len: 2048
+head_max_len: 256
+batch_rows: 64
+max_tokens: 32768
+cache_only: true
+device: cpu

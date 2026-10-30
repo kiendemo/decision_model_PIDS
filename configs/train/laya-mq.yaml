@@ -1,0 +1,30 @@
+# Laya trainer recipe, layout MQ (habitus.train.laya_mq.RECIPE_MQ = RECIPE_L with gradient
+# checkpointing off, plus the MQ keys layout / row_tokens / head; YAML == code).
+# Seed count of the reported HB-L.mq arm: TBD (one run, seed 0, derived).
+trainer: laya
+layout: mq
+init: typed-decisions
+seeds: [0]
+recipe:
+  epochs: 1
+  encoder_lr: 2.5e-05
+  head_lr: 0.0001
+  min_lr: 1.0e-06
+  weight_decay: 0.01
+  schedule: cosine
+  warmup: 0.03
+  batch_size: 64
+  micro_batch: 16
+  max_tokens: 16384
+  megabatch: 64
+  grad_clip: 1.0
+  grad_ckpt: false
+  bf16: true
+  seed: 0
+  loss: soft-ce
+  max_len: 2048
+  head_max_len: 256
+  qtype: choice
+  layout: mq
+  row_tokens: 2048
+  head: row

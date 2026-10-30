@@ -1,0 +1,16 @@
+# MAIN: routed QV / QT / QA answered by the stock Qwen3.5-4B (letter readout).
+# Numbers reproduce on CPU from the shipped answer cache (cache_only: true needs no model weights).
+# Mirrored by tests/test_dm_mirror_jev.py; users edit paths only (configs/local.yaml).
+dm: jev
+layout: letter
+questions: routed
+backbone: Qwen/Qwen3.5-4B
+revision: 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a
+adapter: null
+dtype: bfloat16
+cache_tag: qwen3.5-4b
+cache_only: true
+device: cpu
+batch_size: 32
+prefix_share: true
+grouping: direct

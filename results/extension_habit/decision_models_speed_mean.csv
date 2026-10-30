@@ -1,0 +1,10 @@
+model,branch,backbone,n_folds,train_items_per_s,train_GPU_hours_per_fold,infer_questions_per_s,infer_ms_per_node,stream_p50_ms_per_view,stream_p95_ms_per_view,speedup_vs_HB_4B,train_peak_GiB,serve_peak_GiB
+HB-Z,JEV-style,Qwen3.5-4B,4,,,25.8435,0.4285,143.9517,246.6215,1.0,,10.55
+HB,JEV-style,Qwen3.5-4B,4,4.5463,2.2172,25.8376,0.4276,136.6563,245.8684,1.0,10.28,10.55
+HB.head,JEV-style,Qwen3.5-4B,4,4.6663,2.1637,25.9708,0.4256,137.9484,243.8751,1.01,10.28,10.55
+HB.08b,JEV-style,Qwen3.5-0.8B,4,16.1556,0.6226,85.3704,0.1291,112.5879,139.208,3.3,2.65,2.54
+HB-L.s0,Laya-style,ModernBERT-large 421M,4,36.3431,0.2763,76.8443,0.148,32.8589,107.8999,2.97,8.68,3.44
+HB-L,Laya-style,ModernBERT-large 421M x3,4,36.3557,0.8263,26.0673,0.4362,95.2907,309.6924,1.01,8.68,3.44
+HB-L.mq,Laya-style,ModernBERT-large 421M,4,83.5629,0.1246,286.6798,0.0385,28.1509,31.6871,11.1,15.83,2.61
+HB-L.full,Laya-style,ModernBERT-large 421M,4,36.2885,0.277,77.0166,0.1474,32.3819,108.6938,2.98,8.68,3.44
+HB-L.zs,Laya-style,ModernBERT-large 421M,4,,,76.8552,0.1478,32.9373,106.9006,2.97,,3.44

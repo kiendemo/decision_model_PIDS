@@ -1,0 +1,28 @@
+model,fold,M1_tail_log_score,M2_rare_present_AUC,M7_within_view_AUC,M3_NLL_T1,n_tail,n_questions,note
+HB-Z,loho-optc_h501,0.892,0.838,0.5844,0.793,409,8795,stock Qwen3.5-4B
+HB-Z,loho-CADETS_E3,1.137,0.840,0.6459,0.728,219,3993,
+HB-Z,loho-THEIA_E3,1.300,0.673,0.5965,0.726,246,3469,
+HB,loho-optc_h501,0.931,0.803,0.7552,0.724,409,8795,Qwen3.5-4B LoRA
+HB,loho-CADETS_E3,0.220,0.982,0.8250,0.335,219,3993,
+HB,loho-THEIA_E3,0.687,0.932,0.7685,0.491,246,3469,
+HB.head,loho-optc_h501,0.819,0.822,0.7235,0.722,409,8795,4B LoRA + fp32 head
+HB.head,loho-CADETS_E3,0.376,0.969,0.8421,0.312,219,3993,
+HB.head,loho-THEIA_E3,0.700,0.926,0.7551,0.515,246,3469,
+HB.08b,loho-optc_h501,0.764,0.857,0.7458,0.758,409,8795,Qwen3.5-0.8B LoRA
+HB.08b,loho-CADETS_E3,0.622,0.956,0.8418,0.360,219,3993,
+HB.08b,loho-THEIA_E3,0.762,0.904,0.7407,0.509,246,3469,
+HB-L,loho-optc_h501,0.763,0.856,0.7291,0.728,409,8795,Laya clone 3 seeds
+HB-L,loho-CADETS_E3,0.853,0.892,0.8070,0.402,219,3993,
+HB-L,loho-THEIA_E3,0.688,0.929,0.7224,0.465,246,3469,
+HB-L.s0,loho-optc_h501,0.776,0.838,0.7197,0.727,409,8795,Laya clone seed 0
+HB-L.s0,loho-CADETS_E3,0.618,0.903,0.7900,0.406,219,3993,
+HB-L.s0,loho-THEIA_E3,0.746,0.937,0.7494,0.496,246,3469,
+HB-L.full,loho-optc_h501,0.705,0.851,0.6705,0.742,409,8795,FROZEN/unsupported: no HB-L.full arm or config in this repo; Laya clone all items
+HB-L.full,loho-CADETS_E3,0.793,0.884,0.8019,0.465,219,3993,FROZEN/unsupported: no HB-L.full arm or config in this repo
+HB-L.full,loho-THEIA_E3,0.811,0.863,0.6791,0.492,246,3469,FROZEN/unsupported: no HB-L.full arm or config in this repo
+HB-L.mq,loho-optc_h501,0.747,0.852,0.6686,0.777,409,8795,Laya encode-once MQ
+HB-L.mq,loho-CADETS_E3,0.856,0.902,0.8035,0.427,219,3993,
+HB-L.mq,loho-THEIA_E3,1.022,0.857,0.6925,0.510,246,3469,
+HB-L.zs,loho-optc_h501,0.758,0.584,0.5274,0.870,409,8795,Laya zero-shot
+HB-L.zs,loho-CADETS_E3,0.328,0.853,0.6029,0.734,219,3993,
+HB-L.zs,loho-THEIA_E3,0.833,0.845,0.7373,0.968,246,3469,

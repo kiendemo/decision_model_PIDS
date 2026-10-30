@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# The import package is `habitus`; the distribution may need another name before any public upload
+# (a project called habitus may exist on the package index).
+name = "habitus"
+version = "0.1.0"
+description = "HABITUS: a decision-model pipeline for label-free host provenance intrusion detection"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Security",
+]
+dependencies = []
+
+[project.optional-dependencies]
+# CPU replay from the shipped caches: tables, replay of every score file, operating tables.
+# No torch: AutoTokenizer + apply_chat_template render the prompts through jinja2.
+replay = [
+    "numpy==2.3.5",
+    "scipy==1.16.3",
+    "scikit-learn==1.7.2",
+    "PyYAML==6.0.3",
+    "transformers==5.14.1",
+    "tokenizers==0.22.2",
+    "huggingface_hub==1.24.0",
+    "jinja2==3.1.6",
+    "MarkupSafe==3.0.2",
+]
+# GPU forward of the decision models (re-inference is not bit-exact; see docs/REPRODUCE.md)
+gpu = [
+    "torch==2.12.0",
+    "safetensors==0.8.0",
+    "flash-linear-attention==0.5.2",
+    "fla-core==0.5.2",
+]
+train = [
+    "peft==0.21.2",
+    "accelerate==1.15.0",
+]
+# rebuilding cards from the DARPA / OpTC / ATLASv2 dumps (upstream PIDSMaker is installed separately)
+data = [
+    "networkx==3.5",
+    "psycopg2==2.9.12",
+    "torch==2.12.0",
+    "yacs==0.1.8",
+]
+dev = [
+    "pytest==8.4.2",
+]
+
+[project.scripts]
+habitus = "habitus.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
+markers = [
+    "provenance: compares vendored code with the original sources (needs paths.pidsmaker_src / paths.laya_src; server only)",
+    "assets: needs the release bundle (release/habitus-cache-v1)",
+    "local_assets: needs model weights / role-table catalogs outside the bundle (HABITUS_REQUIRE_LOCAL_ASSETS=1 to require)",
+    "slow: takes more than a minute on CPU",
+    "gpu: needs a CUDA device (never run in CI)",
+]

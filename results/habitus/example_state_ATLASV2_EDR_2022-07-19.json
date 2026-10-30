@@ -1,0 +1,22 @@
+{
+ "ds": "ATLASV2_EDR",
+ "k": "all",
+ "day": "2022-07-19",
+ "process": {
+  "sig": "7843cf07007ba3be",
+  "states": {
+   "qv": "{\"entity\":{\"type\":\"process\",\"os\":\"windows\",\"file_name\":\"notepad.exe\",\"executable\":\"c:\\\\windows\\\\system32\\\\notepad.exe\",\"parent_name\":\"explorer.exe\",\"image_dir\":\"system\"},\"hard_bits\":{\"image_location\":\"system\",\"image_deleted\":\"no\",\"runs_from_writable\":\"no\",\"ran_file_written_today\":\"n/a\",\"wrote_file_run_later\":\"n/a\",\"writes_to_writable_dirs\":\"yes\",\"runs_from_dirs\":\"n/a\",\"external_peers\":\"no\",\"has_parent\":\"yes\",\"observable\":{\"exec\":\"no\",\"lineage\":\"yes\"}},\"reference\":{\"days\":3,\"identity_seen_days\":\"3/3\",\"identity_frequency\":\"high\",\"name_seen_days\":\"3/3\",\"behaviour_seen_before\":\"no\",\"parent_child_seen\":\"yes\",\"name_usual_children\":[],\"name_usual_write_dirs\":[\"home\",\"system\"],\"name_usual_peers\":[]},\"deviation\":{\"new_ops\":[],\"ops_above_usual\":[\"open:system\",\"write:system\"],\"new_children\":[],\"new_write_dirs\":[],\"new_exec_dirs\":\"n/a\",\"new_peer_classes\":[]}}",
+   "qt": "{\"entity\":{\"type\":\"process\",\"os\":\"windows\",\"file_name\":\"notepad.exe\",\"executable\":\"c:\\\\windows\\\\system32\\\\notepad.exe\",\"parent_name\":\"explorer.exe\",\"image_dir\":\"system\"},\"hard_bits\":{\"image_location\":\"system\",\"image_deleted\":\"no\",\"runs_from_writable\":\"no\",\"ran_file_written_today\":\"n/a\",\"wrote_file_run_later\":\"n/a\",\"writes_to_writable_dirs\":\"yes\",\"runs_from_dirs\":\"n/a\",\"external_peers\":\"no\",\"has_parent\":\"yes\",\"observable\":{\"exec\":\"no\",\"lineage\":\"yes\"}},\"deviation\":{\"new_ops\":[],\"ops_above_usual\":[\"open:system\",\"write:system\"],\"new_children\":[],\"new_write_dirs\":[],\"new_exec_dirs\":\"n/a\",\"new_peer_classes\":[]},\"evidence\":{\"new\":{\"wrote file:home/document\":\"in 1/1 nodes\"},\"known\":\"2-7\",\"representatives\":1}}",
+   "qa": "{\"entity\":{\"type\":\"process\",\"os\":\"windows\",\"file_name\":\"notepad.exe\",\"executable\":\"c:\\\\windows\\\\system32\\\\notepad.exe\",\"parent_name\":\"explorer.exe\",\"image_dir\":\"system\"},\"reference\":{\"days\":3,\"identity_seen_days\":\"3/3\",\"identity_frequency\":\"high\",\"name_seen_days\":\"3/3\",\"behaviour_seen_before\":\"no\",\"parent_child_seen\":\"yes\",\"name_usual_children\":[],\"name_usual_write_dirs\":[\"home\",\"system\"],\"name_usual_peers\":[]},\"precedent\":{\"nearest_reference\":[{\"identity\":\"notepad.exe [system]\",\"seen_days\":\"3/3\",\"ops\":[\"load:system\",\"registry:system\",\"delete:system\",\"load:application\"]},{\"identity\":\"notepad.exe [system]\",\"seen_days\":\"3/3\",\"ops\":[\"load:system\",\"registry:system\",\"delete:system\",\"load:application\"]}]}}"
+  },
+  "served": {
+   "qv": 0.5844520915520063,
+   "qt": 0.41174277252494373,
+   "qa": 0.5872878272316275,
+   "hard": false,
+   "cov_min": 0.988866,
+   "base": 0.5844520915520063,
+   "composite": 0.4128312920677273
+  }
+ }
+}

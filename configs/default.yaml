@@ -1,0 +1,36 @@
+# HABITUS defaults. Every path is relative to `home` (a relative home is relative to the repo root).
+# Do not put server paths here: copy configs/local.example.yaml to the gitignored configs/local.yaml.
+# Environment overrides: HABITUS_HOME, HABITUS_DATA, HABITUS_RUNS, HABITUS_GT, HF_HOME (models),
+# HABITUS_LAYA_HUB, HABITUS_CATALOGS, HABITUS_FORBIDDEN_GPUS, PIDSMAKER_ARTIFACTS,
+# PIDSMAKER_UPSTREAM_ARTIFACTS.
+
+paths:
+  home: "."
+  data: "release/habitus-cache-v1"          # the read-only result bundle written by scripts/make_release.py
+  cards: "${data}/cards"                     # cards/<ds>/<day>.json.gz + cards/<ds>/links/<day>.json.gz
+  nodeindex: "${data}/nodeindex"             # nodeindex/<ds>/<day>.json.gz (string-free node index)
+  answers: "${data}/answers"                 # answer caches answers/<tag>/<ds>.jsonl(.gz)
+  scores: "${data}/scores"                   # shipped score files scores/<ds>/<level>_k<k>/<day>.json.gz
+  precedent: "${data}/precedent_cache"       # shipped precedent cache precedent_cache/<ds>/*.json.gz
+  ground_truth: "${data}/ground_truth/orthrus"   # GT CSVs: read by habitus.eval only
+  tokenizers: "${data}/tokenizer"            # pinned tokenizer snapshots
+  baselines: "${data}/baselines"             # PIDSMaker baseline score vectors
+  runs: "runs"                               # every file HABITUS writes goes under here
+  models: "models/hf"                        # Hugging Face cache (HF_HOME) with the backbones
+  laya_hub: "models/laya_hub"                # Laya checkpoints (typed-decisions, tokenizer)
+  catalogs: "models/catalogs2"               # role-table catalogs (scripts/fetch_catalogs.sh)
+  # server-only inputs: null here, set in configs/local.yaml
+  pidsmaker_src: null                        # a PIDSMaker source tree (provenance tests)
+  pidsmaker_artifacts: null                  # PIDSMaker artifact dir (graphs, resolver caches, cards)
+  upstream_artifacts: null                   # artifacts of the upstream PIDSMaker baseline runs
+  upstream_gt: null                          # upstream Ground_Truth/orthrus (label guard blocks it)
+  research_results: null                     # research result files (scripts/results/build_results.py)
+  paper_derive: null                         # paper derivation scripts (scripts/results/build_results.py)
+  laya_src: null                             # Laya 0.3.5 source (provenance tests)
+  pidsmaker_python: null                     # interpreter of the env with upstream PIDSMaker installed
+  upstream_src: null                         # upstream PIDSMaker source providing pidsmaker.config
+
+device: cpu
+threads: 8
+forbidden_gpus: []
+offline: true

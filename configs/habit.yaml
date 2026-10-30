@@ -1,0 +1,73 @@
+# Habit channel (HABITUS+H) constants for the 5 in-scope hosts.
+# MIRROR of src/habitus/questions/habit/constants.py and src/habitus/train/items.py: the code is the
+# source of truth; tests/test_habit_mirror.py asserts this file == the code. Do not tune these values.
+
+composite:
+  C_K: 0.5                    # a = C_K * qa for a node that is not lineage-attested
+  BARS: [0, 1, 20]            # tau_B for B in BARS
+  WEAK_CAP: 20                # B = 20 weak tier: <= 20 alerts per test day
+  FIXED_ALERT_ROWS: [1, 5, 20, 50]
+  TP_CURVE_MAX: 100
+
+questions:
+  MAX_OPTIONS: 4
+  MAX_BUCKETS: 8
+  MAX_LISTED: 6
+  MAX_P1_NAMES: 4
+  MAX_VIEW_TOKENS: 1024       # a longer view is refused (never truncated)
+  SYSTEM_H_MAX_TOKENS: 60
+  T_CLAMP: [0.5, 3.0]         # temperatures are for calibration reports only; serving is T = 1
+
+nulls:
+  NULL_MIN_STRATUM: 500
+  TAIL_FIT_MIN: 200
+  TAIL_Q: 0.95
+
+hosts:
+  DEV_HOSTS: [CADETS_E3, THEIA_E3, ATLASV2_EDR, optc_h501]
+  TRAIN_ONLY: [CLEARSCOPE_E3]
+  folds:
+    loho-CADETS_E3: [THEIA_E3, ATLASV2_EDR, optc_h501, CLEARSCOPE_E3]
+    loho-THEIA_E3: [CADETS_E3, ATLASV2_EDR, optc_h501, CLEARSCOPE_E3]
+    loho-ATLASV2_EDR: [CADETS_E3, THEIA_E3, optc_h501, CLEARSCOPE_E3]
+    loho-optc_h501: [CADETS_E3, THEIA_E3, ATLASV2_EDR, CLEARSCOPE_E3]
+    all: [CADETS_E3, THEIA_E3, ATLASV2_EDR, optc_h501, CLEARSCOPE_E3]
+  H501_SELECTION_DAYS: ["2019-09-19", "2019-09-21"]   # arm-selection metrics only (parity half)
+
+kplans: [k0, k2, allc-pre]
+select_kplans: [k0, k2, allc-pre]
+
+export:                       # train.items
+  HEAD_SAMPLE: 0.05
+  ABSENT_RATIO: 1.0
+  A3_FRAC: 0.2
+  TWIN_RATE: 0.05
+  seed: 0
+
+sample:                       # train.items.sample_fold
+  composition:
+    ntype: {process: 0.55, file: 0.15, netflow: 0.30}
+    kmode: {allc-pre: 0.30, k2: 0.30, k1: 0.20, k0: 0.20}
+    present: 0.5
+    rare_max: 4.0
+  n_fold: {max: 120000, min: 60000, hours: 10.0}
+  # N per fold of the retraining: TBD. The frozen runs realised (run_facts): loho-optc_h501 18,526
+  # train + 5,236 inner items; loho-CADETS_E3 35,525; loho-THEIA_E3 35,458; loho-ATLASV2_EDR 39,532.
+  n_per_fold: null
+
+arms:                         # habit arm -> decision-model config (configs/dm/<name>.yaml)
+  HB-Z: jev-qwen3.5-4b-habit
+  HB: jev-qwen3.5-4b-lora
+  HB.head: jev-qwen3.5-4b-head
+  HB.08b: jev-qwen3.5-0.8b-lora
+  HB-L.s0: laya-typed-s0
+  HB-L: laya-typed-ens3
+  HB-L.mq: laya-typed-mq
+  HB-L.zs: laya-typed-zs
+
+role_table:                   # scripts/fetch_catalogs.sh fetches these; vocab checks the table sha256
+  sha256: 0494521304faa22625db72b195dbb0d15134204feff9e25c65a826d1f7c9741a
+  gtfobins_commit: acd524623f9c406acedd2754ebd9c2431f3675ad
+  lolbas_commit: 2056cb7662509dc998fc6ce79636aec4e6c0397f
+  contents_amd64_sha256: 7e72214b4cef520fa07fc40ff975c60bc4501eca6308cf5cd9804c00811b776b
+  xcyclopedia_sha256: 6fb323a5d27637048e52e58102e98415705ef30611e6e81639d9266b44ed9a46

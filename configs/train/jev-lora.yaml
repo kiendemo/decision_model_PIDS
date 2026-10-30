@@ -1,0 +1,20 @@
+# Mirror of habitus.train.jev.RECIPE and LORA_TARGETS (tests/test_dm_mirror_jev.py asserts equality).
+# The recipe is fixed a priori; train.jev reads the code constants, not this file.
+variant: lora
+recipe:
+  epochs: 1
+  lr: 1.0e-4
+  weight_decay: 0.0
+  schedule: cosine
+  warmup: 0.03
+  batch_size: 16
+  micro_batch: 8
+  megabatch: 64
+  grad_clip: 1.0
+  grad_ckpt: true
+  bf16: true
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  seed: 0
+lora_targets: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]

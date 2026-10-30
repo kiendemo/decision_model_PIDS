@@ -1,0 +1,15 @@
+# HB.08b: HB on Qwen3.5-0.8B (the pre-declared speed fallback; same recipe and items).
+# TBD: being retrained. cache_tag auto = hb-qwen3.5-0.8b+HB.08b-<12 hex of the adapter content hash>.
+dm: jev
+layout: letter
+questions: habit
+backbone: Qwen/Qwen3.5-0.8B
+revision: 2fc06364715b967f1860aea9cf38778875588b17
+adapter: runs/adapters/<fold>/HB.08b
+dtype: bfloat16
+cache_tag: auto
+cache_only: true
+device: cpu
+batch_size: 32
+prefix_share: true
+grouping: chunked

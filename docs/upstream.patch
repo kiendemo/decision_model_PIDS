@@ -1,0 +1,21 @@
+Minimal patch to pristine PIDSMaker 2289cd9 for HABITUS (optc_h501 database name only).
+
+Upstream names the optc_h501 database 'optc_501'; the dump restore (scripts/load_dumps.sh) names each
+database after its dump file, so the optc_h501 dump lands in 'optc_h501'. habitus.data.upstream and
+scripts/build_graphs.py also set cfg.dataset.database programmatically, so the patch is needed only
+when upstream PIDSMaker is run on its own. Apply from the PIDSMaker checkout: git apply upstream.patch
+
+diff --git a/pidsmaker/config/config.py b/pidsmaker/config/config.py
+--- a/pidsmaker/config/config.py
++++ b/pidsmaker/config/config.py
+@@ -214,8 +214,8 @@
+     },
+     "optc_h501": {
+         "raw_dir": "",
+-        "database": "optc_501",
+-        "database_all_file": "optc_501",
++        "database": "optc_h501",
++        "database_all_file": "optc_h501",
+         "num_node_types": 3,
+         "num_edge_types": 10,
+         "start_date": "2019-09-15",

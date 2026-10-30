@@ -1,0 +1,309 @@
+{
+ "CADETS_E3": {
+  "k": "k2",
+  "days": [
+   {
+    "day": "2018-04-06",
+    "n_head": 7106,
+    "qa_asked": 7106,
+    "hard": 13,
+    "hard_and_qa": 13,
+    "head_by_type": {
+     "process": 987,
+     "file": 2000,
+     "netflow": 4119
+    },
+    "ref": [
+     "2018-04-02",
+     "2018-04-03"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   },
+   {
+    "day": "2018-04-11",
+    "n_head": 4035,
+    "qa_asked": 4035,
+    "hard": 3,
+    "hard_and_qa": 3,
+    "head_by_type": {
+     "process": 1128,
+     "file": 1424,
+     "netflow": 1483
+    },
+    "ref": [
+     "2018-04-02",
+     "2018-04-03"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   },
+   {
+    "day": "2018-04-12",
+    "n_head": 3623,
+    "qa_asked": 3623,
+    "hard": 22,
+    "hard_and_qa": 22,
+    "head_by_type": {
+     "process": 897,
+     "file": 1635,
+     "netflow": 1091
+    },
+    "ref": [
+     "2018-04-02",
+     "2018-04-03"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   },
+   {
+    "day": "2018-04-13",
+    "n_head": 2363,
+    "qa_asked": 2363,
+    "hard": 6,
+    "hard_and_qa": 6,
+    "head_by_type": {
+     "process": 660,
+     "file": 335,
+     "netflow": 1368
+    },
+    "ref": [
+     "2018-04-02",
+     "2018-04-03"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   }
+  ],
+  "n_head_total": 17127,
+  "qa_share": 1.0,
+  "hard_share": 0.002569043031470777,
+  "hard_and_qa_share": 0.002569043031470777,
+  "prompts_per_sig_mean": 6.0
+ },
+ "THEIA_E3": {
+  "k": "kall",
+  "days": [
+   {
+    "day": "2018-04-10",
+    "n_head": 2792,
+    "qa_asked": 2792,
+    "hard": 14,
+    "hard_and_qa": 14,
+    "head_by_type": {
+     "process": 558,
+     "file": 2000,
+     "netflow": 234
+    },
+    "ref": [
+     "2018-04-03",
+     "2018-04-04",
+     "2018-04-05",
+     "2018-04-09"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   },
+   {
+    "day": "2018-04-12",
+    "n_head": 3567,
+    "qa_asked": 3567,
+    "hard": 19,
+    "hard_and_qa": 19,
+    "head_by_type": {
+     "process": 1250,
+     "file": 2000,
+     "netflow": 317
+    },
+    "ref": [
+     "2018-04-03",
+     "2018-04-04",
+     "2018-04-05",
+     "2018-04-09"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   },
+   {
+    "day": "2018-04-13",
+    "n_head": 3488,
+    "qa_asked": 3488,
+    "hard": 3,
+    "hard_and_qa": 3,
+    "head_by_type": {
+     "process": 1226,
+     "file": 2000,
+     "netflow": 262
+    },
+    "ref": [
+     "2018-04-03",
+     "2018-04-04",
+     "2018-04-05",
+     "2018-04-09"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   }
+  ],
+  "n_head_total": 9847,
+  "qa_share": 1.0,
+  "hard_share": 0.003655935818015639,
+  "hard_and_qa_share": 0.003655935818015639,
+  "prompts_per_sig_mean": 6.0
+ },
+ "CLEARSCOPE_E3": {
+  "k": "kall",
+  "days": [
+   {
+    "day": "2018-04-11",
+    "n_head": 1807,
+    "qa_asked": 1807,
+    "hard": 0,
+    "hard_and_qa": 0,
+    "head_by_type": {
+     "process": 392,
+     "file": 1310,
+     "netflow": 105
+    },
+    "ref": [
+     "2018-04-03",
+     "2018-04-04",
+     "2018-04-05",
+     "2018-04-07",
+     "2018-04-08",
+     "2018-04-09",
+     "2018-04-10"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   },
+   {
+    "day": "2018-04-12",
+    "n_head": 1833,
+    "qa_asked": 1833,
+    "hard": 0,
+    "hard_and_qa": 0,
+    "head_by_type": {
+     "process": 430,
+     "file": 1330,
+     "netflow": 73
+    },
+    "ref": [
+     "2018-04-03",
+     "2018-04-04",
+     "2018-04-05",
+     "2018-04-07",
+     "2018-04-08",
+     "2018-04-09",
+     "2018-04-10"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   }
+  ],
+  "n_head_total": 3640,
+  "qa_share": 1.0,
+  "hard_share": 0.0,
+  "hard_and_qa_share": 0.0,
+  "prompts_per_sig_mean": 6.0
+ },
+ "optc_h501": {
+  "k": "kall",
+  "days": [
+   {
+    "day": "2019-09-23",
+    "n_head": 10674,
+    "qa_asked": 10674,
+    "hard": 0,
+    "hard_and_qa": 0,
+    "head_by_type": {
+     "process": 3092,
+     "file": 2000,
+     "netflow": 5582
+    },
+    "ref": [
+     "2019-09-19",
+     "2019-09-20",
+     "2019-09-21",
+     "2019-09-22"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   },
+   {
+    "day": "2019-09-24",
+    "n_head": 9745,
+    "qa_asked": 9745,
+    "hard": 0,
+    "hard_and_qa": 0,
+    "head_by_type": {
+     "process": 2613,
+     "file": 2000,
+     "netflow": 5132
+    },
+    "ref": [
+     "2019-09-19",
+     "2019-09-20",
+     "2019-09-21",
+     "2019-09-22"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   },
+   {
+    "day": "2019-09-25",
+    "n_head": 3727,
+    "qa_asked": 3727,
+    "hard": 0,
+    "hard_and_qa": 0,
+    "head_by_type": {
+     "process": 1181,
+     "file": 2000,
+     "netflow": 546
+    },
+    "ref": [
+     "2019-09-19",
+     "2019-09-20",
+     "2019-09-21",
+     "2019-09-22"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   }
+  ],
+  "n_head_total": 24146,
+  "qa_share": 1.0,
+  "hard_share": 0.0,
+  "hard_and_qa_share": 0.0,
+  "prompts_per_sig_mean": 6.0
+ },
+ "ATLASV2_EDR": {
+  "k": "kall",
+  "days": [
+   {
+    "day": "2022-07-19",
+    "n_head": 6064,
+    "qa_asked": 6064,
+    "hard": 0,
+    "hard_and_qa": 0,
+    "head_by_type": {
+     "process": 949,
+     "file": 2000,
+     "netflow": 3115
+    },
+    "ref": [
+     "2022-07-16",
+     "2022-07-17",
+     "2022-07-18"
+    ],
+    "prefix_share": true,
+    "grouping": "qvqt"
+   }
+  ],
+  "n_head_total": 6064,
+  "qa_share": 1.0,
+  "hard_share": 0.0,
+  "hard_and_qa_share": 0.0,
+  "prompts_per_sig_mean": 6.0
+ }
+}

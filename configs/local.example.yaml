@@ -1,0 +1,41 @@
+# Template of configs/local.yaml (gitignored: never commit the copy). Two uses:
+#
+# A. Outside the build server (with the result bundle): usually NO local.yaml is needed. The
+#    repository-relative defaults of configs/default.yaml are
+#      paths.data       release/habitus-cache-v1   the result bundle (docs/REPRODUCE.md)
+#      paths.models     models/hf                  HF_HOME layout with Qwen/Qwen3.5-4B (+ 0.8B): GPU forwards only
+#      paths.laya_hub   models/laya_hub            snapshot of convaiinnovations/laya @ 1c5edc17a7acd8701df6fc341c0d179f1c62c982
+#      paths.catalogs   models/catalogs2           `scripts/fetch_catalogs.sh models/catalogs2`
+#    Write a local.yaml only for what lives elsewhere, with absolute paths, for example:
+#      forbidden_gpus: []                   # GPU indices never to use; a union over every layer and
+#                                           # $HABITUS_FORBIDDEN_GPUS (an env value only adds)
+#      paths:
+#        data: /srv/habitus-cache-v1
+#        models: /srv/hf
+#        laya_hub: /srv/laya_hub
+#        catalogs: /srv/catalogs2           # outside the repo: verified and read, never updated
+#        upstream_src: /opt/PIDSMaker       # upstream PIDSMaker 2289cd9 clone (see DATA.md under docs)
+#        pidsmaker_python: /opt/pidsmaker-env/bin/python   # `habitus data graphs` only
+#    models, laya_hub and catalogs outside the repository are read-only inputs.
+#
+# B. The build server (the layout below): replace ${CYRAG_ROOT} with the absolute path of the
+#    research tree, or export CYRAG_ROOT before running habitus (the loader expands ${NAME} from the
+#    environment). These inputs are only ever read: HABITUS writes under paths.runs only.
+
+forbidden_gpus: [2]          # build server: GPU 2 belongs to another user (drop or edit elsewhere)
+
+paths:
+  pidsmaker_src: ${CYRAG_ROOT}/PIDSMaker
+  pidsmaker_artifacts: ${CYRAG_ROOT}/PIDSMaker/artifacts
+  upstream_artifacts: ${CYRAG_ROOT}/artifacts_upstream
+  upstream_gt: ${CYRAG_ROOT}/PIDSMaker_upstream/Ground_Truth/orthrus
+  upstream_src: ${CYRAG_ROOT}/PIDSMaker_upstream
+  research_results: ${CYRAG_ROOT}/research/results/reflex/habitus
+  paper_derive: ${CYRAG_ROOT}/paper/habitus/derive
+  laya_src: ${CYRAG_ROOT}/third_party/laya
+  catalogs: ${CYRAG_ROOT}/third_party/catalogs2
+  models: ${CYRAG_ROOT}/PIDSMaker/artifacts/reflex/models/hf
+  laya_hub: ${CYRAG_ROOT}/PIDSMaker/artifacts/reflex/models/laya_hub
+  # interpreter of the env with upstream PIDSMaker 2289cd9 + docs/upstream.patch installed
+  # (used only by `habitus data graphs`), e.g. ${PIDSMAKER_ENV}/bin/python
+  pidsmaker_python: null

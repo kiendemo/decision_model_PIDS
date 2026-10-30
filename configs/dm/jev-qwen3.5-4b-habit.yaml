@@ -1,0 +1,15 @@
+# HB-Z: habit questions answered zero-shot by the stock Qwen3.5-4B (letter readout).
+# FROZEN: its answer cache was lost with the former data disk; scoring needs a GPU (cache_only: false).
+dm: jev
+layout: letter
+questions: habit
+backbone: Qwen/Qwen3.5-4B
+revision: 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a
+adapter: null
+dtype: bfloat16
+cache_tag: hb-qwen3.5-4b
+cache_only: true
+device: cpu
+batch_size: 32
+prefix_share: true
+grouping: chunked

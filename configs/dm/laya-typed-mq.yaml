@@ -1,0 +1,17 @@
+# HB-L.mq: the Laya decision model in layout MQ (encode the view once, one block per question, one
+# order-invariant pass). Seed count TBD: the reported arm was one run (seed 0, derived from the run
+# facts; its run record was lost with the former data disk).
+dm: laya
+layout: mq
+questions: habit
+init: typed-decisions
+runs:
+  - runs/adapters/<fold>/hbl/HB-L.mq-s0
+max_len: 2048
+head_max_len: 256
+batch_rows: 8
+batch_tokens: 16384
+row_tokens: 2048
+layout_version: mq1
+cache_only: true
+device: cpu

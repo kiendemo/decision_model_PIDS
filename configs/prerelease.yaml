@@ -1,0 +1,26 @@
+# Pre-release view, for the gates that run BEFORE scripts/make_release.py has built
+# release/habitus-cache-v1 (G2, G3, the G6 asset tests): read the original research caches IN PLACE,
+# read only, through paths.pidsmaker_artifacts of the gitignored configs/local.yaml.
+#
+#   habitus --config configs/prerelease.yaml gates --only G2,G3,G5,G6,G8
+#
+# Each redirected input is the one scripts/make_release.py copies from, in the same layout:
+#   cards        <pidsmaker_artifacts>/reflex/cards/<ds>/<day>.json.gz (+ links/)
+#   answers      <pidsmaker_artifacts>/reflex/kcs1/answers/<tag>/<ds>.jsonl (the UNPRUNED source)
+#   scores       <pidsmaker_artifacts>/reflex/kcs1/scores/<ds>/<level>_k<k>/<day>.json.gz
+#   precedent    <pidsmaker_artifacts>/reflex/kcs1/precedent_cache/<ds>/
+#   ground_truth <upstream_gt>/<HostSpec.gt_files>   (read by habitus.eval only; the guard blocks it)
+#   baselines    <home>/runs/baselines/<ds>_best_baseline.npz (scripts/export_baselines.py output; not
+#                ${runs}: the tests point paths.runs at a temporary directory)
+# Every reader takes one allow-listed host directory or file at a time. Nothing is written there:
+# pidsmaker_artifacts and upstream_gt are read-only inputs (config.check_writable,
+# decide.scorefile.check_writable), the precedent base is never locked, and answer-cache / precedent
+# overlays go under paths.runs. nodeindex and tokenizer are NOT redirected (no pre-release copy: the
+# Host reads cards, the sanitizer / jev tokenizer resolve the pinned snapshot under paths.models).
+paths:
+  cards: "${pidsmaker_artifacts}/reflex/cards"
+  answers: "${pidsmaker_artifacts}/reflex/kcs1/answers"
+  scores: "${pidsmaker_artifacts}/reflex/kcs1/scores"
+  precedent: "${pidsmaker_artifacts}/reflex/kcs1/precedent_cache"
+  ground_truth: "${upstream_gt}"
+  baselines: "${home}/runs/baselines"

@@ -1,0 +1,84 @@
+# sha256 of every file under results/ (verify: cd results && sha256sum -c MANIFEST.sha256).
+# Each hash line follows a comment naming its source (paths relative to the source tree root).
+# README.md <- generated (numbers from the files above; STATUS block from habitus.dm.status)
+801ab5aa119a4309dfd0bb3c0d92e1a5150af4d1e5da7318fd9b34d61e924b56  README.md
+# baselines/PROVENANCE.md <- artifacts_upstream (python scripts/export_baselines.py)
+cc2e4d251c13acd7a33b3755aceb11d4e9b569ba0d6001e3aa1f2fb2cc07236a  baselines/PROVENANCE.md
+# baselines/pidsmaker_args.sh <- artifacts_upstream (python scripts/export_baselines.py)
+e4881b73a1bf35e616787b5ef3cc3ccd68ba9aa29ec2f4af0479bc1797f479be  baselines/pidsmaker_args.sh
+# baselines/pidsmaker_missing.csv <- artifacts_upstream (python scripts/export_baselines.py)
+24d5b50deed8854cb2a2565deef2e7d198009c010ebf090fdff6fad68de80567  baselines/pidsmaker_missing.csv
+# baselines/pidsmaker_rows.csv <- artifacts_upstream (python scripts/export_baselines.py)
+85458c3bafd65a87d63ded7ec76f5ebe45d7f445b601b8f681e67fa58da920bc  baselines/pidsmaker_rows.csv
+# extension_habit/FROZEN.md <- generated
+51d16b41cfcbd9c675337979e4c4f7f54a7a624c7ef3ca5ac72cd3eed21feb6e  extension_habit/FROZEN.md
+# extension_habit/arms_pilot_loho-optc_h501.md <- research/results/reflex/habitus/arms_pilot_loho-optc_h501.md (HB-C rows removed, paths scrubbed, archival banner)
+2cde07608ef0920fad7f72530869caf2e18ca981294de967b5886aa97ecd66e1  extension_habit/arms_pilot_loho-optc_h501.md
+# extension_habit/arms_smoke.md <- research/results/reflex/habitus/arms_smoke.md (paths scrubbed, archival banner)
+5a181e402b62dfd2dc9c053f75be3da2a15bfd3b9ce836ba80b77e494849a845  extension_habit/arms_smoke.md
+# extension_habit/decision_models_best_mcc.csv <- research/results/reflex/habitus/decision_models/decision_models_best_mcc.csv (byte copy)
+fb88ab05af64ee707cf9aa8e39ba0a22b1c1681c2c8a56a33767d067f9a4a43a  extension_habit/decision_models_best_mcc.csv
+# extension_habit/decision_models_mcc_matrix_allc-pre.csv <- research/results/reflex/habitus/decision_models/decision_models_mcc_matrix_allc-pre.csv (byte copy)
+1f4b8d3636f613628332e4d57ea448e46455d60501f3209b44303427a66cb9eb  extension_habit/decision_models_mcc_matrix_allc-pre.csv
+# extension_habit/decision_models_mcc_matrix_k2.csv <- research/results/reflex/habitus/decision_models/decision_models_mcc_matrix_k2.csv (byte copy)
+50fc03cc22ea948b78ba3e362414383bc955e928743bd40207ebce5c3c4a069e  extension_habit/decision_models_mcc_matrix_k2.csv
+# extension_habit/decision_models_speed_mean.csv <- research/results/reflex/habitus/decision_models/decision_models_speed_mean.csv (byte copy)
+3d58a92a4fdb64cebd1186370eef0b1c57f70801c093cf26714d408b4e904871  extension_habit/decision_models_speed_mean.csv
+# extension_habit/decision_models_speed_per_fold.csv <- research/results/reflex/habitus/decision_models/decision_models_speed_per_fold.csv (byte copy)
+aef3183747d4d60e3e5361ee0003a0b9170d3825f799c7b8dab73ee838639cf1  extension_habit/decision_models_speed_per_fold.csv
+# extension_habit/hb0_rows.csv <- research/results/reflex/habitus/confusion_reference.md (HB0 rows of the per-host tables)
+021931adb5787c0ba04bd29b037d29f0d67124c49d378eae82e8657d362c75fd  extension_habit/hb0_rows.csv
+# extension_habit/provenance/make_csv.py <- research/results/reflex/habitus/decision_models/make_csv.py (provenance only, paths scrubbed)
+b6826d8a4abff86c1a8e174b255dcd181d414895ef9bb9268c5f17b1438a5524  extension_habit/provenance/make_csv.py
+# extension_habit/run_facts_20261029.md <- research/results/reflex/habitus/run_facts_20261029.md (paths scrubbed, archival banner)
+b6ca699f9bf848f40fbd2c96281a63c73739cb021fe329a2e708ee708cbddd30  extension_habit/run_facts_20261029.md
+# extension_habit/selection_metrics_3folds.csv <- research/results/reflex/habitus/selection_metrics_3folds.csv (HB-C rows removed, HB-L.full flagged)
+a476b0a61a2a81cfee750ca5ac2dd59aee966bfe5ea170bcca75009a5cacfd6b  extension_habit/selection_metrics_3folds.csv
+# habitus/ablation_e1_e2.csv <- research/results/reflex/habitus/zeroshot_ablation.csv (byte copy)
+c748e3e4642a8370ba5881478f90a596ea769b6c3d3695dc602bb5688a017858  habitus/ablation_e1_e2.csv
+# habitus/ablation_e1_e2.md <- research/results/reflex/habitus/zeroshot_ablation.md (provenance line rewritten by habitus.eval.tables.provenance_line; every other byte copied)
+508f9d70f7d6ca80e349ca39d3ad7a93c688a6b786666910aee7b37c9a28c855  habitus/ablation_e1_e2.md
+# habitus/bootstrap_draws/boot_ATLASV2_EDR.json <- paper/habitus/derive/editor/boot_ATLASV2_EDR.json (rule-lex / rule-count systems stripped)
+4bedacc509c41f68705c29c20f3a12653fd7536c020de2ade9086c853ce148a4  habitus/bootstrap_draws/boot_ATLASV2_EDR.json
+# habitus/bootstrap_draws/boot_CADETS_E3.json <- paper/habitus/derive/editor/boot_CADETS_E3.json (rule-lex / rule-count systems stripped)
+11cc44d335fd723455e260f024f07ca5c731480f90b34090c68f37ad341b4b79  habitus/bootstrap_draws/boot_CADETS_E3.json
+# habitus/bootstrap_draws/boot_CLEARSCOPE_E3.json <- paper/habitus/derive/editor/boot_CLEARSCOPE_E3.json (rule-lex / rule-count systems stripped)
+c5341a4be146030b4efb00e328e930eb24bc9c598eb82480d5674f4210b14b36  habitus/bootstrap_draws/boot_CLEARSCOPE_E3.json
+# habitus/bootstrap_draws/boot_THEIA_E3.json <- paper/habitus/derive/editor/boot_THEIA_E3.json (rule-lex / rule-count systems stripped)
+62e323e88a7a4c07ff26ea2cad567cc2fa12386ada3383ff39020e1802980b57  habitus/bootstrap_draws/boot_THEIA_E3.json
+# habitus/bootstrap_draws/boot_optc_h501.json <- paper/habitus/derive/editor/boot_optc_h501.json (rule-lex / rule-count systems stripped)
+17c5173fc3392115dfad76ac708f7c22fde4c7149489ac88da42ca1702632133  habitus/bootstrap_draws/boot_optc_h501.json
+# habitus/bootstrap_mcc.csv <- paper/habitus/derive/editor/editor_cpu.json (summary without the rule pairs; recomputed by habitus.eval.bootstrap.merge from the stripped draws and checked equal)
+3c8dcba4261a85c65298601c9f1749ca6fbfb95dbc08d6b4f4b20873438df6f7  habitus/bootstrap_mcc.csv
+# habitus/budget_rows.csv <- paper/habitus/derive/editor/budget_<DS>.json (plans.*.budget, repr floats)
+a33deeb079e0eabfbac7371de16e6115c709fee6f7c6c9810458627e1ed6b379  habitus/budget_rows.csv
+# habitus/check_a_dev.json <- research/results/reflex/habitus/method_stats/checka_dev.json (byte copy)
+fbfb35ee4c4de0532159e2ad03cb8e73799ab7a93b7fa3f5705237fae221e7f1  habitus/check_a_dev.json
+# habitus/example_state_ATLASV2_EDR_2022-07-19.json <- research/results/reflex/habitus/method_stats/example_state_ATLASV2_EDR_2022-07-19.json (byte copy)
+06740fd18838c747d5d333651dd9caa3307f59a342a0a5020aacf2bd05b2092f  habitus/example_state_ATLASV2_EDR_2022-07-19.json
+# habitus/form_gaps.csv <- paper/habitus/derive/editor/state_<DS>.json (gaps, repr floats)
+1187e91886108f482d50cf8f4c3487103e0bcf2551efa51de7c23da3b60076aa  habitus/form_gaps.csv
+# habitus/main_config.csv <- research/results/reflex/habitus/zeroshot_ablation.csv (rows main_config=yes, original writer)
+4352462b37e25486a31642a2ab3e520a45b97a5b45bb3849e7c23ed88800a436  habitus/main_config.csv
+# habitus/per_attack_recall.csv <- paper/habitus/derive/editor/budget_<DS>.json (oracle_by_attack, budget_by_attack, repr floats)
+2355509de5fffe759b12492b1e21b9b605a4100b02570580ce0c3a04a0599b00  habitus/per_attack_recall.csv
+# habitus/route_cost.csv <- paper/habitus/derive/route_cost.json (the 5 hosts' keys only, repr floats)
+daa1b6ff64601d32355bad02fed9778c0ac5b73624e7980a2ccc0232937386bb  habitus/route_cost.csv
+# habitus/route_stats.json <- research/results/reflex/habitus/method_stats/routestats.json (5 hosts)
+dd64a9b38d342ac5d6c1ebe3bd3cadccca9755c431317de72e4738e315faf201  habitus/route_stats.json
+# habitus/sensitivity_composition.csv <- paper/habitus/derive/editor/budget_<DS>.json (sensitivity, repr floats)
+82e10ee988f7f5a226d0610a5a576c2ec3366406d177eb67af1adef6ea4fcf08  habitus/sensitivity_composition.csv
+# habitus/sensitivity_forms.csv <- paper/habitus/derive/editor/state_<DS>.json (forms; rules dropped, repr floats)
+630e2577ce2cb200804bff4e45f2bcd835e21c6cca7e829d77988b79d1d273e8  habitus/sensitivity_forms.csv
+# habitus/summary_means.json <- research/results/reflex/habitus/zeroshot_ablation.csv (habitus.eval.derived.summary_means)
+0d59bd02cd65602852b52bcdf4c9fe560973b486f573b6b64d1a911882931c6e  habitus/summary_means.json
+# habitus/token_audit/tok_ATLASV2_EDR_all_2022-07-19.json <- research/results/reflex/habitus/method_stats/tok_ATLASV2_EDR_all_2022-07-19.json (byte copy)
+cff9354dc89808fefc8e9bc1ae975759d779840de8ae5f3d1604a0c4c2cd5f25  habitus/token_audit/tok_ATLASV2_EDR_all_2022-07-19.json
+# habitus/token_audit/tok_CADETS_E3_2_2018-04-06.json <- research/results/reflex/habitus/method_stats/tok_CADETS_E3_2_2018-04-06.json (byte copy)
+7599168fdbf250474fd3482b2dfbb72a39fb7aa557cd034d1db066476f2b78de  habitus/token_audit/tok_CADETS_E3_2_2018-04-06.json
+# habitus/token_audit/tok_THEIA_E3_all_2018-04-10.json <- research/results/reflex/habitus/method_stats/tok_THEIA_E3_all_2018-04-10.json (byte copy)
+f59d9f15fe40f38c165db9f08ed9b2b5dac1cd0d6592adf83d7bd1645a28b65b  habitus/token_audit/tok_THEIA_E3_all_2018-04-10.json
+# not_included.md <- generated (cites the paper's derivation files)
+aa92952d4e2b637e824d1a290417a0ee408dd03e8c13b7223d45bf14ae102992  not_included.md
+# protocol/datasets.md <- generated from habitus.hosts (configs/datasets.yaml)
+8501e5717dce4a450522793c62de87865948d1018d85894ae25ab0af1fcf6846  protocol/datasets.md

@@ -1,0 +1,52 @@
+# Pipeline constants of the routed decision pipeline (E2 main system, E1 ablation ladder).
+#
+# MIRROR ONLY. The code is the byte-identity source of truth: these values are not read at run
+# time, and tests/test_state_mirror.py asserts that every entry equals the code constant it names.
+# Editing a value here changes nothing; changing the code constant changes every answer-cache key
+# and fails the golden-state gates (G2/G3).
+
+e2:
+  caps: {process: 4000, file: 2000, netflow: 6000}        # habitus.state.select.CAPS
+  lambda: 0.5                                             # habitus.decide.composite.LAMBDA
+  routes:                                                 # habitus.state.sections.E2_ROUTES
+    qv: [entity, hard_bits, reference, deviation]
+    qt: [entity, hard_bits, deviation, evidence]
+    qa: [entity, reference, precedent]
+  hard_bits:                                              # habitus.state.sections.HARD
+    - ran_file_written_today
+    - wrote_file_run_later
+    - image_deleted
+    - run_after_written_today
+  precedent_e: 2                                          # habitus.state.precedent.PREC_E
+  precedent_ops: 4                                        # habitus.state.precedent.PREC_OPS
+  nf_reps: 8                                              # habitus.state.sections.NF_REPS
+  nf_entries: 8                                           # habitus.state.sections.NF_ENTRIES
+  grouping: qvqt                                          # QV + QT forms share a prefix group, QA apart
+  forms: {qv: [fwd, rev], qt: [pos, neg], qa: [pos, neg]} # habitus.questions.routed.variants
+  ks: ["all", "2", "0"]
+  fallback: "-1+0.5/(1+n_s)"                              # habitus.state.select.fallback_value
+  node_score: max_over_test_days
+  low_cov: 0.5                                            # habitus.questions.routed.LOW_COV (counted, never dropped)
+  record: [qv, qt, qa, hard, cov_min, base, composite]
+
+ladder:                                                   # E1, state-ablation table only
+  levels: [L0, L1, L2, L3, L4]                            # habitus.state.ladder.LEVELS
+  k0_levels: [L0, L1, L3]                                 # habitus.state.ladder.K0_LEVELS
+  primary: {"0": L3, "2": L4, all: L4}                    # habitus.state.ladder.PRIMARY
+  e1_dedupe: state_hash(serialized)
+  e1_record: [qv, qt, cov_min]
+  e1_questions: [qv, qt]                                  # asked with SYSTEM (not SYSTEM_E2)
+
+# Which null (LODO clean-day) score files exist; reproduces the shipped inventory (G4a).
+# all_hosts = every host; k0_nulls = only hosts whose HostSpec.k0_nulls is true.
+# No null files for L0 or L1, nor for L3 at k >= 1.
+null_rules:                                               # habitus.decide.inventory.NULL_RULES
+  E2: {k2: all_hosts, kall: all_hosts, k0: k0_nulls}
+  L2: {k2: all_hosts, kall: all_hosts}
+  L4: {k2: all_hosts, kall: all_hosts}
+  L3: {k0: k0_nulls}
+
+eval:
+  threshold: oracle_best_mcc        # highest t on ties; the tie block is counted positive
+  ties_negative: reported
+  gt_without_card: FN

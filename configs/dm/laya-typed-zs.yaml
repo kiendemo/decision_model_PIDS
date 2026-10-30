@@ -1,0 +1,14 @@
+# HB-L.zs: the Laya init (typed-decisions) zero-shot, layout L-a (one row per question form).
+# Backend habitus.dm.laya.LayaDecisionModel; the checkpoint is <paths.laya_hub>/typed-decisions.
+# Numeric values mirror the code (tests/test_dm_mirror_laya.py asserts YAML == code).
+dm: laya
+layout: la
+questions: habit
+init: typed-decisions
+runs: null
+max_len: 2048
+head_max_len: 256
+batch_rows: 64
+max_tokens: 32768
+cache_only: true
+device: cpu
