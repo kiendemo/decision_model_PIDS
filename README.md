@@ -278,41 +278,6 @@ was added. Both parts were then run on GPU 0 (`habitus gates --only G7 --gpu 0`,
 reproduced the cached answers bit for bit (max abs delta 0.0, argmax agreement 1.0), the subset smokes
 passed (jev p99 0.0608 <= 0.08; laya-typed-zs finite, 0 refused): 4 PASS, 0 FAIL.
 
-## Limitations
-
-- **Oracle threshold.** All MCCs use the threshold that maximises MCC on the test labels. The
-  label-free clean-day bars miss their FP budget (realised FP per test day > B) in 12 of 15
-  (host, B) cells ([results/README.md](results/README.md), tab:budget). Ties at the threshold count
-  positive; with ties negative the HABITUS mean drops to 0.328 (optc_h501 to 0.209, through a
-  348-node tie block).
-- **Design-informed development hosts.** The E2 routing and the name-free evidence were chosen after a
-  label-reading diagnosis on THEIA_E3, and every host was seen during design. No number here is
-  held out.
-- **No advantage over a no-LLM rule.** rule-lex over the same compiled state ties HABITUS on the mean
-  and beats it on CADETS_E3, so the gain over PIDSMaker is not shown to come from the decision model
-  rather than from the compiled state ([results/not_included.md](results/not_included.md)).
-- **Frozen habit-channel CSVs.** The HABITUS+H arms (HB-Z, HB, HB.head, HB.08b, HB-L.s0, HB-L,
-  HB-L.mq) ship as frozen CSVs only: their adapters, run directories, habit nulls and answer caches
-  were on a former data disk that is no longer readable. The code is here; retrained numbers will
-  differ ([results/extension_habit/FROZEN.md](results/extension_habit/FROZEN.md)). The selection
-  metrics M1 / M2 used the excluded HB-C selector and cannot be recomputed. Of the habit channel only
-  HB0 (no decision-model call) is recomputed (G11).
-- **laya on the routed questions is not evaluated.** The backend answers them, but no number exists.
-  E2 rows over the 2048-token budget are refused, never cut, and `decide routed` raises on a refusal;
-  a tokenizer-only scan of the first test day of each host refused 0 of 82,005 routed questions
-  (longest row 516 tokens). The trained jev variants are not evaluated on the routed questions either.
-- **GPU re-inference is not bit-exact.** A bf16 re-forward with another batch makeup moves the letter
-  probabilities by p99 about 0.06 and qv / qt / qa by p99 0.029-0.035 (argmax agreement 0.965-0.99,
-  RTX A5000). In the original batch makeup the GPU path is bit-exact (G7 full-day replay, max abs
-  delta 0.0); the shipped answer cache stays the canonical record.
-- **Baselines.** The PIDSMaker rows are frozen for outside users (they need the upstream run
-  artifacts); the best baseline uses PIDSMaker's label-selected `best_adp` epoch, and two of the five
-  best rows use `tuned*` arguments.
-- **The rebuild from the dumps is partly verified.** The card builder rebuilt all 45 card and link
-  files JSON-equal from the stored graphs. That pristine PIDSMaker 2289cd9 + `docs/upstream.patch`
-  gives the same graph bytes was not checked, and the CLEARSCOPE_E3 graph bytes were never compared
-  with an upstream run ([docs/DATA.md](docs/DATA.md)).
-- **The bundle is unpublished**, so outside users cannot run the data gates yet.
 
 ## Repository layout
 
